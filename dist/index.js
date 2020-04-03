@@ -12544,6 +12544,7 @@ module.exports = (function(e, t) {
     const c = new s({ auth: `token ${a}` });
     async function main() {
       const e = await p.getMyStats({ range: i.LAST_YEAR });
+      console.log(e);
       await updateGist(e);
     }
     async function updateGist(e) {
@@ -12565,6 +12566,7 @@ module.exports = (function(e, t) {
         ];
         r.push(a.join(" "));
       }
+      r.push(`Best Day: ${e.data.best_day.date} (${e.data.best_day.text})`);
       try {
         const e = Object.keys(t.data.files)[0];
         await c.gists.update({

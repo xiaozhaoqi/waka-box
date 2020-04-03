@@ -14,6 +14,7 @@ const octokit = new Octokit({ auth: `token ${githubToken}` });
 
 async function main() {
   const stats = await wakatime.getMyStats({ range: RANGE.LAST_YEAR });
+  console.log(stats);
   await updateGist(stats);
 }
 
@@ -39,6 +40,10 @@ async function updateGist(stats) {
 
     lines.push(line.join(" "));
   }
+
+  lines.push(
+    `Best Day: ${stats.data.best_day.date} (${stats.data.best_day.text})`
+  );
 
   try {
     // Get original filename to update that same file
