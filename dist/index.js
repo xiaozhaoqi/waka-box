@@ -12573,7 +12573,7 @@ module.exports = (function(e, t) {
           gist_id: o,
           files: {
             [e]: {
-              filename: `📊 WakaTime编程记录`,
+              filename: `📊 Recently used languages`,
               content: r.join("\n")
             }
           }
